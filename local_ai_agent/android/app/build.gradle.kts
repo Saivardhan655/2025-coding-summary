@@ -1,3 +1,4 @@
+apply(plugin = "io.objectbox")
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -45,4 +46,6 @@ flutter {
 
 dependencies {
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.16.3")
+    implementation("io.objectbox:objectbox-android:3.7.1")
 }

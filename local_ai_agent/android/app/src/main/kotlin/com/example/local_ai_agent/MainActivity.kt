@@ -1,6 +1,7 @@
 package com.example.local_ai_agent
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.os.Build
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -11,6 +12,11 @@ class MainActivity : FlutterActivity() {
 
 	override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
 		super.configureFlutterEngine(flutterEngine)
+
+		val isDebuggable = (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+		if (isDebuggable) {
+			NotificationEmbeddingDebug.dumpAllEmbeddings(this)
+		}
 
 		MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
 			when (call.method) {

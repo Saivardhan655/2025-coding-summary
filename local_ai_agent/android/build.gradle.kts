@@ -1,3 +1,16 @@
+buildscript{
+    val objectboxVersion = "3.7.1"
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("io.objectbox:objectbox-gradle-plugin:$objectboxVersion")
+    }
+}
+
+
 allprojects {
     repositories {
         google()
